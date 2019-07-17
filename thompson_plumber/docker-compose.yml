@@ -1,0 +1,15 @@
+version: '3'
+services:
+  thomspon_api:
+    restart: always
+    volumes:
+      - ./:/usr/special
+    privileged: true
+    environment:
+      SWAGGER: "TRUE"
+    expose:
+     - 6012
+    ports:
+      - 41333:6012
+    build: ./
+    command: ["Rscript", "/usr/special/plumber.R"]
